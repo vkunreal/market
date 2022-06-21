@@ -1,0 +1,27 @@
+.navbar {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-around;
+
+  &-heading {
+    font-size: 28px;
+  }
+
+  &-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+    font-size: 15px;
+
+    & a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
