@@ -1,7 +1,7 @@
 import { Navbar } from "../Navbar";
 import "./styles.scss";
 
-export const Header: React.FC = () => {
+export const Header = () => {
   return (
     <header className="header">
       <Navbar />

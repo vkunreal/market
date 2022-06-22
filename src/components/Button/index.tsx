@@ -1,12 +1,16 @@
+import { IButtonProps } from "./interfaces";
 import "./styles.scss";
 
-interface IButtonProps {
-  children: React.ReactNode;
-  className: string;
-}
-
-export const Button: React.FC<IButtonProps> = ({ children, className }) => {
+export const Button: React.FC<IButtonProps> = ({
+  children,
+  className,
+  onClick,
+}) => {
   const unionClassName = `btn ${className}`;
 
-  return <button className={unionClassName}>{children}</button>;
+  return (
+    <button className={unionClassName} onClick={onClick}>
+      {children}
+    </button>
+  );
 };
