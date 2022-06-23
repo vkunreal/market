@@ -1,3 +1,4 @@
+import { CardTypes } from "store/cards/interfaces";
 import { IStore } from "./../index";
 import { Dispatch } from "redux";
 import { ICard } from "./interfaces";
@@ -8,6 +9,7 @@ export enum CardsActions {
   SELECT_CARD = "CARDS::SELECT_CARD",
   REMOVE_SELECTED_CARD = "CARDS::REMOVE_SELECTED_CARD",
   REMOVE_CARDS = "CARDS::REMOVE_CARDS",
+  CHANGE_SELECTED_TYPE = "CARDS::CHANGE_SELECTED_TYPE",
 }
 
 export const setCards = (cards: ICard[]) => ({
@@ -28,6 +30,11 @@ export const removeSelectCard = (id: number) => ({
 export const removeCards = (id: number[]) => ({
   type: CardsActions.REMOVE_CARDS,
   payload: id,
+});
+
+export const changeSelectedType = (type: CardTypes) => ({
+  type: CardsActions.CHANGE_SELECTED_TYPE,
+  payload: type,
 });
 
 export const setInitCards: any = () => (dispatch: Dispatch) => {

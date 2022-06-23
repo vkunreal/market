@@ -1,0 +1,16 @@
+.selectCategory {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+
+    &-item {
+        cursor: pointer;
+        color: #87746a;
+    }
+
+    &-item-active {
+        color: #4fe24a;;
+    }
+}

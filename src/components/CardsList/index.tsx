@@ -7,22 +7,31 @@ import {
   selectCard,
   setInitCards,
 } from "store/cards/actions";
-import { selectCards } from "store/cards/selectors";
+import { selectCards, selectSelectedType } from "store/cards/selectors";
 import { ICard } from "store/cards/interfaces";
 import "./styles.scss";
 
-const setCards = (cards: ICard[], page: number) => cards.slice(0, page * 9);
-
+const setCards = (cards: ICard[], page: number, selectedType: string) => {
+  if (selectedType.toLowerCase() === "show all") {
+    return cards.slice(0, page * 9);
+  } else {
+    return cards
+      .filter((card) => card.type === selectedType)
+      .slice(0, page * 9);
+  }
+};
 export const CardsList: React.FC = () => {
   const [pageCards, setPageCards] = useState<ICard[]>([]);
   const [page, setPage] = useState(1);
+
   const cards = useSelector(selectCards);
+  const selectedType = useSelector(selectSelectedType);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setPageCards(setCards(cards, page));
-  }, [cards, page]);
+    setPageCards(setCards(cards, page, selectedType));
+  }, [cards, page, selectedType]);
 
   useEffect(() => {
     document.body.addEventListener("keyup", (e) => {

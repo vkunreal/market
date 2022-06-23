@@ -11,19 +11,14 @@ export const Card: React.FC<ICardProps> = ({
   isSelected,
   onClick,
 }) => {
-  const className = isSelected ? "card card-selected" : "card";
+  const className = isSelected ? "card-selected" : "";
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleOnClick = () => onClick(cardRef.current?.getAttribute("id"));
 
   return (
-    <div
-      className={className}
-      onClick={handleOnClick}
-      id={String(id)}
-      ref={cardRef}
-    >
-      <img src={imgSrc} alt={name} />
+    <div onClick={handleOnClick} id={String(id)} ref={cardRef} className="card">
+      <img src={imgSrc} alt={name} className={className} />
 
       <div className="card-surface">
         <h3 className="card-type">{type}</h3>

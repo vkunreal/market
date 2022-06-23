@@ -1,5 +1,6 @@
+import { Header } from "components/Header";
+import { SelectCategory } from "components/SelectCategory";
 import { CardsList } from "components/CardsList";
-import { Header } from "../../components/Header";
 
 export const MainPage: React.FC = () => {
   return (
@@ -7,6 +8,8 @@ export const MainPage: React.FC = () => {
       <Header />
 
       <main>
+        <SelectCategory />
+
         <CardsList />
       </main>
     </div>

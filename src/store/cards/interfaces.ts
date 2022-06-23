@@ -1,6 +1,7 @@
 import { CardsActions } from "./actions";
 
 export enum CardTypes {
+  showAll = "Show All",
   design = "Design",
   branding = "Branding",
   illustration = "Illustration",
@@ -17,6 +18,7 @@ export interface ICard {
 
 export interface ICardsState {
   cards: ICard[];
+  selectedType: string;
 }
 
 interface ISetCards {
@@ -39,8 +41,14 @@ interface IRemoveCards {
   payload: number[];
 }
 
+interface IChangeSelectedType {
+  type: CardsActions.CHANGE_SELECTED_TYPE;
+  payload: CardTypes;
+}
+
 export type ICardsAction =
   | ISetCards
   | ISelectCard
   | IRemoveSelectedCard
-  | IRemoveCards;
+  | IRemoveCards
+  | IChangeSelectedType;

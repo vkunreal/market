@@ -4,6 +4,7 @@ import { ICardsState, ICardsAction } from "./interfaces";
 
 const initState: ICardsState = {
   cards: [],
+  selectedType: "Show All",
 };
 
 export const cardsReducer = (
@@ -41,6 +42,12 @@ export const cardsReducer = (
       return {
         ...state,
         cards: nCards,
+      };
+
+    case CardsActions.CHANGE_SELECTED_TYPE:
+      return {
+        ...state,
+        selectedType: payload,
       };
 
     default:
