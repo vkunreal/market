@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "components/Button";
 import { Card } from "components/Card";
-import { removeCard, selectCard, setInitCards } from "store/cards/actions";
+import {
+  removeSelectedCards,
+  selectCard,
+  setInitCards,
+} from "store/cards/actions";
 import { selectCards } from "store/cards/selectors";
 import { ICard } from "store/cards/interfaces";
 import "./styles.scss";
@@ -16,18 +20,21 @@ export const CardsList: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  const handleDelete = (e: any) => {
-    if (e.key.toLowerCase() === "delete") dispatch(removeCard());
-  };
+  useEffect(() => {
+    setPageCards(setCards(cards, page));
+  }, [cards, page]);
 
   useEffect(() => {
-    dispatch(setInitCards());
-    setPageCards(setCards(cards, page));
-    document.body.addEventListener("keyup", handleDelete);
-  }, [dispatch, setPageCards, cards, page]);
+    document.body.addEventListener("keyup", (e) => {
+      if (e.key === "Delete") {
+        dispatch(removeSelectedCards());
+      }
+    });
 
-  const handleLoadMore = (e: React.MouseEvent<HTMLButtonElement>) =>
-    setPage(page + 1);
+    dispatch(setInitCards());
+  }, [dispatch]);
+
+  const handleLoadMore = () => setPage(page + 1);
 
   const handleCardClick = (id: string | null | undefined) => {
     if (id) {
@@ -51,7 +58,14 @@ export const CardsList: React.FC = () => {
         ))}
       </div>
 
-      <Button onClick={handleLoadMore}>Load more</Button>
+      <Button
+        onClick={handleLoadMore}
+        color="#333"
+        background="#fff"
+        className="cardsList-btn"
+      >
+        Load more
+      </Button>
     </div>
   );
 };

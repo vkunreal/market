@@ -34,8 +34,8 @@ interface IRemoveSelectedCard {
   payload: number;
 }
 
-interface IRemoveCard {
-  type: CardsActions.REMOVE_CARD;
+interface IRemoveCards {
+  type: CardsActions.REMOVE_CARDS;
   payload: number[];
 }
 
@@ -43,4 +43,4 @@ export type ICardsAction =
   | ISetCards
   | ISelectCard
   | IRemoveSelectedCard
-  | IRemoveCard;
+  | IRemoveCards;

@@ -32,10 +32,10 @@ export const cardsReducer = (
         cards: nCards,
       };
 
-    case CardsActions.REMOVE_CARD:
-      nCards = [];
+    case CardsActions.REMOVE_CARDS:
+      nCards = state.cards;
       payload.forEach((id) => {
-        nCards = state.cards.filter((card) => card.id !== id);
+        nCards = nCards.filter((card) => card.id !== id);
       });
 
       return {

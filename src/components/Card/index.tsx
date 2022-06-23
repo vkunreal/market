@@ -26,7 +26,7 @@ export const Card: React.FC<ICardProps> = ({
       <img src={imgSrc} alt={name} />
 
       <div className="card-surface">
-        <h3>{type}</h3>
+        <h3 className="card-type">{type}</h3>
         <h1>{name}</h1>
       </div>
     </div>

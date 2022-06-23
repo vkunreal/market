@@ -17,7 +17,13 @@ export const Navbar: React.FC = () => {
         ))}
       </div>
 
-      <Button className="contact-btn">CONTACT</Button>
+      <Button
+        className="contact-btn"
+        color="#fff"
+        background="rgba(0, 0, 0, 0)"
+      >
+        CONTACT
+      </Button>
     </nav>
   );
 };
