@@ -12,3 +12,9 @@
 body {
   background-color: #fcefe9;
 }
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    width: 90%;
+  }
+}

@@ -1,8 +1,13 @@
 .navbar {
   width: 100%;
-  padding: 15px 0;
   display: flex;
   justify-content: space-around;
+
+  &-wrapper {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-around;
+  }
 
   &-heading {
     font-size: 28px;
@@ -22,6 +27,15 @@
       &:hover {
         text-decoration: underline;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    &-btns,
+    .contact-btn {
+      display: none;
     }
   }
 }

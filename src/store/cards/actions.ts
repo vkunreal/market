@@ -1,6 +1,6 @@
+import { Dispatch } from "redux";
 import { CardTypes } from "store/cards/interfaces";
 import { IStore } from "./../index";
-import { Dispatch } from "redux";
 import { ICard } from "./interfaces";
 import { initCards } from "./initCards";
 

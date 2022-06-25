@@ -1,7 +1,8 @@
+import React from "react";
 import { Navbar } from "../Navbar";
 import "./styles.scss";
 
-export const Header = () => {
+export const Header = React.memo(() => {
   return (
     <header className="header">
       <Navbar />
@@ -16,4 +17,4 @@ export const Header = () => {
       </div>
     </header>
   );
-};
+});

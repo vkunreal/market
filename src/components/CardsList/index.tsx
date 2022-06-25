@@ -11,6 +11,7 @@ import { selectCards, selectSelectedType } from "store/cards/selectors";
 import { ICard } from "store/cards/interfaces";
 import "./styles.scss";
 
+// set new page cards by page and selected type
 const setCards = (cards: ICard[], page: number, selectedType: string) => {
   if (selectedType.toLowerCase() === "show all") {
     return cards.slice(0, page * 9);
@@ -29,10 +30,12 @@ export const CardsList: React.FC = () => {
 
   const dispatch = useDispatch();
 
+  // set new page cards if one of dependencies did changed
   useEffect(() => {
     setPageCards(setCards(cards, page, selectedType));
   }, [cards, page, selectedType]);
 
+  // set event listener on Delete and set init cards
   useEffect(() => {
     document.body.addEventListener("keyup", (e) => {
       if (e.key === "Delete") {

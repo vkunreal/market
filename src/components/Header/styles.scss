@@ -15,8 +15,22 @@
 
     & p {
       max-width: 450px;
-      text-align: center;
       color: #b1b2b9;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    &-bottom {
+      & h1 {
+        font-size: 450%;
+      }
+
+      & p {
+        font-size: 200%;
+      }
     }
   }
 }

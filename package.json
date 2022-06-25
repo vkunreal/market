@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "market",
+  "version": "1.0.0",
   "private": true,
   "devDependencies": {
     "@types/node": "^16.7.13",

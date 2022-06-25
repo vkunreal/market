@@ -1,36 +1,39 @@
 .card {
+  width: 300px;
+  height: 330px;
   position: relative;
   cursor: pointer;
 
   & img {
     width: 300px;
     height: 330px;
+    user-select: none;
   }
 
   &-surface {
     width: 300px;
     height: 330px;
-    position: absolute;
     background-color: rgb(135, 116, 106, 0.5);
     color: #fff;
-    top: 0px;
     display: flex;
+    position: absolute;
     flex-direction: column;
-    gap: 10px;
     justify-content: flex-end;
+    gap: 10px;
+    top: 0px;
     padding-left: 25px;
     padding-bottom: 30px;
   }
 
   &-type {
+    width: 100px;
+    background-color: #fff;
+    color: #87746a;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    width: 100px;
     padding: 5px;
     border-radius: 30px;
-    color: #87746a;
   }
 
   &-selected {

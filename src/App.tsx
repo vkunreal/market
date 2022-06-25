@@ -1,4 +1,4 @@
-import { RoutesComp } from "./views/RoutesComp";
+import { RoutesComp } from "views/RoutesComp";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import "./App.scss";
